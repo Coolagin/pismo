@@ -34,7 +34,7 @@ module Pismo
       @url = handle if handle =~ /\Ahttp/i
 
       @html = if handle =~ /\Ahttp/i
-                open(handle).read
+                open(handle, "User-Agent" => "Whatever you want here").read
               elsif handle.is_a?(StringIO) || handle.is_a?(IO) || handle.is_a?(Tempfile)
                 handle.read
               else
